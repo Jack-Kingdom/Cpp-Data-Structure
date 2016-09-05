@@ -66,7 +66,6 @@ struct SinglyLinkedList {
     }
 };
 
-//TODO: main function for test
 #include <iostream>
 using namespace std;
 int main(){
