@@ -73,7 +73,7 @@ public:
             free(node);
         } else {
             // 删除节点
-            free(this->front);
+            delete(this->front);
 
             // 清空指针
             this->front = nullptr;
@@ -131,12 +131,12 @@ public:
             this->back->next = nullptr;
 
             // 释放该节点
-            free(node);
+            delete(node);
 
         } else {
 
             // 删除节点
-            free(this->back);
+            delete(this->back);
 
             // 清空指针
             this->front = nullptr;
