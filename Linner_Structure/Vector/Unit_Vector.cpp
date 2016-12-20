@@ -1,7 +1,6 @@
 //
 // Created by Jack King on 12/20/16.
 //
-// 测试了主要功能，没有完全覆盖
 
 #include "Vector.h"
 #include <assert.h>
