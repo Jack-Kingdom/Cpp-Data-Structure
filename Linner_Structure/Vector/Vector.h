@@ -1,7 +1,7 @@
 //
 // Created by Jack King on 12/20/16.
 //
-// 由 C++ 实现的向量
+// 由 C++ 实现的向量，API 参照了 C++ 标准库
 
 #include <stdlib.h> /* realloc, free, exit, NULL */
 
@@ -25,6 +25,13 @@ public:
         this->data = new ElemType[init_size];
         this->size=0;
         this->max_size = init_size;
+    }
+    ~Vector(){
+        /*
+         * 功能：清除申请的空间
+         */
+
+        free(this->data);
     }
 
     int capacity() {
