@@ -12,7 +12,7 @@ private:
         Node *next = nullptr;
     };
 
-    size_t size;
+    int size;
     Node *front;
     Node *back;
 
