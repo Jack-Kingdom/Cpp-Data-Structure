@@ -70,7 +70,7 @@ public:
             this->front->prev = nullptr;
 
             // 释放该节点
-            free(node);
+            delete (node);
         } else {
             // 删除节点
             delete(this->front);
