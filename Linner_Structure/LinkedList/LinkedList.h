@@ -3,6 +3,10 @@
 //
 // 一个简易的双向链表，仅实现了两端 push 与 pop 的功能
 
+#pragma once
+#include <signal.h>
+#include <iostream>
+
 template<typename ElemType>
 class LinkedList {
 private:
@@ -12,15 +16,32 @@ private:
         Node *next = nullptr;
     };
 
-    int size;
-    Node *front;
-    Node *back;
+    int size=0;
+    Node *front= nullptr;
+    Node *back= nullptr;
 
 public:
     LinkedList() {
+        /*
+         * 功能：构造函数的初始化
+         */
         this->size = 0;
         this->front = nullptr;
         this->back = nullptr;
+    }
+    ~LinkedList(){
+        /*
+         * 功能：析构函数，释放所有的节点
+         */
+
+        while(this->front!=this->back){
+            auto tmp=this->front;
+            this->front=this->front->next;
+            delete(tmp);
+        }
+
+        if(this->front!= nullptr) delete(this->front);
+
     }
 
     void push_front(ElemType data) {
@@ -29,7 +50,12 @@ public:
          */
 
         // 构建一个新的节点
-        auto node = new Node();
+        Node *node;
+        try{
+            node = new Node();
+        }catch (std::bad_alloc){
+            throw "Memory Limited";
+        }
         node->data = data;
 
         if (this->size) {
@@ -89,7 +115,12 @@ public:
          */
 
         // 构建一个新的节点
-        auto node = new Node();
+        Node *node;
+        try{
+            node = new Node();
+        }catch (std::bad_alloc){
+            throw "Memory Limited";
+        }
         node->data = data;
 
         if (this->size) {
