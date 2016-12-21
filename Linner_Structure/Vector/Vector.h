@@ -31,7 +31,7 @@ public:
          * 功能：清除申请的空间
          */
 
-        free(this->data);
+        delete[](this->data);
     }
 
     int capacity() {
