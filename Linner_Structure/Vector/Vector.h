@@ -3,6 +3,7 @@
 //
 // 由 C++ 实现的向量，API 参照了 C++ 标准库
 
+#include <iostream>
 #include <stdlib.h> /* realloc, free, exit, NULL */
 
 #define DEFAULT_INIT_SIZE 10
@@ -22,7 +23,12 @@ public:
          * 参数：size 初始化 vector 的大小
          */
 
-        this->data = new ElemType[init_size];
+        try{
+            this->data = new ElemType[init_size];
+        }catch (std::bad_alloc){
+            throw "memory limited";
+        }
+
         this->size=0;
         this->max_size = init_size;
     }
@@ -75,6 +81,7 @@ public:
          */
 
         this->data = (ElemType *) realloc(this->data, sizeof(ElemType) * size);
+        if (this->data== nullptr) throw "memory limited";
         this->max_size = size;
     }
 
