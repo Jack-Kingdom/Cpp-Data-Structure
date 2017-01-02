@@ -18,24 +18,33 @@ int kmp(std::string origin, std::string pattern) {
     int *next = new int[pattern.length()];
     next[0] = 0;
 
+    // 临时变量
+    int i, j;
+
     // 计算 next 数组
-    for (int i = 1, j = 0; i < pattern.length(); i++, j++) {
-
-        while (pattern[i] != pattern[j] and j != 0) j = next[j];
-
-        next[i] = j;
-    }
-
-    int i=0,j=0,result=0;
-    while(i<origin.length() and j<pattern.length()){
-        if(origin[i]==pattern[j]){
-            i++;
-            j++;
-        }else{
-            j=next[j];
-
+    i = 1, j = 0;
+    while (i < pattern.length()) {
+        // 如果匹配，next[i] 取 j+1 ；i、j 同时后移一位
+        if (pattern[i] == pattern[j]) next[i++] = j++ + 1;
+        else {
+            // j 已经回到开头，仍不匹配，此时 next[i] 取 0 ，i 后移一位
+            if (j == 0) next[i++] = 0;
+            else j = next[j - 1];   // TODO
         }
     }
 
+    // 匹配过程
+    i = 0, j = 0;
+    while (i < origin.length() and j < pattern.length()) {
+        if (origin[i] == pattern[j]) {
+            i++;
+            j++;
+        } else {
+            if (j == 0) i++;
+            else j = next[j - 1];
+        }
+    }
 
+    if (j == pattern.length()) return i - j;
+    else return -1;
 }

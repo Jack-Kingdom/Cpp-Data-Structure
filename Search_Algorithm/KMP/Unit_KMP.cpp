@@ -3,10 +3,15 @@
 //
 
 #include "KMP.h"
-#include <iostream>
-#include <string>
 using namespace std;
 
 int main(){
+    string origin="bbc abcdab abcdabcdabde";
+    string pattern="abcdabd";
 
+    int result=0;
+    result=kmp(origin,pattern);
+    cout<<result<<endl;
+
+    return 0;
 }
