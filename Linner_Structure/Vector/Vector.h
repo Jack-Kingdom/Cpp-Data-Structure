@@ -5,9 +5,10 @@
 
 #include <iostream>
 #include <stdlib.h> /* realloc, free, exit, NULL */
+#include "../../Libary/exception.h"
 
 #define DEFAULT_INIT_SIZE 10
-#define EXTEND_FACTOR 1.5
+#define EXTEND_FACTOR 2
 
 template<typename ElemType>
 class Vector {

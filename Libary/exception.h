@@ -3,9 +3,21 @@
 //
 
 
-class BaseException{
+class BaseException {
+private:
+    //
+    char *msg;
+
 public:
-    virtual char* what(){
-        return "base exception";
+    BaseException(char *msg) {
+        /*
+         *
+         */
+
+        this->msg = msg;
+    }
+
+    virtual char *what() {
+        return this->msg;
     }
 };

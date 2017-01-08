@@ -3,15 +3,16 @@
 //
 
 #include <iostream>
+#include <exception>
 #include "../Libary/exception.h"
 
 using namespace std;
 
 int main() {
-    try {
-        throw new BaseException();
-    } catch (BaseException e) {
-        cout << e.what();
-    }
+    double result;
+    try{
+        result = 1.1/0;
+    }catch (DivideBy)
+    cout<<result<<endl;
     return 0;
 }
