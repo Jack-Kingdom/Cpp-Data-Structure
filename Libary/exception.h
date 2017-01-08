@@ -3,13 +3,13 @@
 //
 
 
-class BaseException {
+class Exception {
 private:
     //
     char *msg;
 
 public:
-    BaseException(char *msg) {
+    Exception(char *msg) {
         /*
          *
          */
