@@ -24,11 +24,8 @@ public:
          * 参数：size 初始化 vector 的大小
          */
 
-        try{
-            this->data = new ElemType[init_size];
-        }catch (std::bad_alloc){
-            throw "memory limited";
-        }
+        this->data = new ElemType[init_size];
+        if(!this->data) throw Exception("memory limited");
 
         this->size=0;
         this->max_size = init_size;
@@ -82,7 +79,7 @@ public:
          */
 
         this->data = (ElemType *) realloc(this->data, sizeof(ElemType) * size);
-        if (this->data== nullptr) throw "memory limited";
+        if (!this->data) throw Exception("memory limited");
         this->max_size = size;
     }
 
