@@ -2,6 +2,9 @@
 // Created by Jack King on 1/7/17.
 //
 
+/*
+ * 封装的一个异常类，用于在必要的时候抛出异常
+ */
 
 class Exception {
 private:
