@@ -9,10 +9,6 @@
 using namespace std;
 
 int main() {
-    double result;
-    try{
-        result = 1.1/0;
-    }catch (DivideBy)
-    cout<<result<<endl;
-    return 0;
+    int *test;
+    if(!test) cout<<"default null"<<endl;
 }
