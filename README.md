@@ -1,11 +1,8 @@
-## 用 C++ 实现的数据结构
-----
-现已实现的如下：
-1. 向量
-2. 链表
+## DataStructure and Algorithms write by C11
 
-TODO List：
-1. Hashmap
-2. 树
-3. 图
-4. 常用排序算法
+Finished Job:
+1.
+
+Unfinished:
+*. vector
+*.
