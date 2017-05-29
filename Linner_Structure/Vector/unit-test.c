@@ -1,14 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "vector.h"
 
-typedef struct ElemType{
+typedef struct{
   int number;
 } ElemType;
 
 int main(){
-  vector vec = new_vector((void*)ElemType,10);
-  vec.data[0].number = 1;
-  printf("%d\n",vec.data[0].number);
+  ElemType data;
+  void* pointer = &data;
+  vector vec = new_vector(pointer,10);
+  ElemType *pointer2 = (ElemType*)vec.data;
+  printf("%d\n",pointer2->number);
   delete_vector(vec);
   return 0;
 }

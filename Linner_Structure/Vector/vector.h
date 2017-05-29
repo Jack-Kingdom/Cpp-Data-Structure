@@ -7,7 +7,7 @@
 
 
 // vector struct
-typedef struct vector {
+typedef struct {
     void *data;         // data pointer
     unsigned int size;      // current used size
     unsigned int maxsize;   // malloced vector size
