@@ -21,10 +21,40 @@ struct SingleLinkedList {
     unsigned int length = 0;
 };
 
-int SingleLinkedList_push_back(SingleLinkedList *lst, DataType *data);
+/*
+ * function: wrap data with a new node and append it to list tail
+ * arguments:
+ *     list: operated SingleLinkedList pointer
+ *     data: DataType pointer
+ * efficiency: O(1)
+ * return value: success return 0, else -1 on err occurred
+ */
+int SingleLinkedList_push_back(SingleLinkedList *list, DataType *data);
 
-DataType SingleLinkedList_pop_back(SingleLinkedList *lst);
+/*
+ * function: pop list's last node
+ * arguments:
+ *     list: operated SingleLinkedList pointer
+ * efficiency: O(n), n stand list's length
+ * return value: success return 0, else -1 on err occurred
+ */
+int SingleLinkedList_pop_back(SingleLinkedList *list);
 
+/*
+ * function: wrap data with a new node and insert it to list head
+ * arguments:
+ *     list: operated SingleLinkedList pointer
+ *     data: DataType pointer
+ * efficiency: O(1)
+ * return value: success return 0, else -1 on err occurred
+ */
 int SingleLinkedList_push_front(SingleLinkedList, DataType);
 
-DataType SingleLinkedList_pop_front(SingleLinkedList *lst);
+/*
+ * function: pop list's first node
+ * arguments:
+ *     list: operated SingleLinkedList pointer
+ * efficiency: O(1)
+ * return value: success return 0, else -1 on err occurred
+ */
+int SingleLinkedList_pop_front(SingleLinkedList *list);
