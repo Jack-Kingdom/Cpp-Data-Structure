@@ -6,9 +6,34 @@
 
 #include <stdlib.h>
 #include <errno.h>
-#include "SingleLinkedList.h"
+#include <stdio.h>
+#include "SinglyLinkedList.h"
 
-int SingleLinkedList_push_back(SingleLinkedList *lst, DataType *data) {
+SinglyLinkedList *SinglyLinkedList_malloc() {
+    SinglyLinkedList *lst = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
+    lst->head = NULL;
+    lst->tail = NULL;
+    lst->length = 0;
+    return lst;
+}
+
+int SinglyLinkedList_free(SinglyLinkedList *lst) {
+    if (lst == NULL) {
+        fprintf(stderr, "lst is a NULL ptr, cannot be free.");
+        return -1;
+    }
+
+    while (lst->head) {
+        Node *tmp = lst->head;
+        lst->head = lst->head->next;
+        free(tmp->data);
+        free(tmp);
+    }
+
+    return 0;
+}
+
+int SinglyLinkedList_push_back(SinglyLinkedList *lst, DataType *data) {
     Node *last_node = (Node *) malloc(sizeof(Node));
     if (!last_node) {
         fprintf(stderr, "memory alloc fails.");
@@ -26,20 +51,20 @@ int SingleLinkedList_push_back(SingleLinkedList *lst, DataType *data) {
     return 0;
 }
 
-int SingleLinkedList_pop_back(SingleLinkedList *lst) {
+int SinglyLinkedList_pop_back(SinglyLinkedList *lst) {
     if (lst->length <= 0) {
         fprintf(stderr, "illegal operation: pop_back from empty single linked list");
         return -1;
     }
-    Node tmp = lst->head;
+    Node *tmp = lst->head;
 
     while (tmp->next != lst->tail) tmp = tmp->next;
     free(tmp->next);
-    tmp->next = nullptr;
+    tmp->next = NULL;
     return 0;
 }
 
-int SingleLinkedList_push_front(SingleLinkedList *lst, DataType *data) {
+int SinglyLinkedList_push_front(SinglyLinkedList *lst, DataType *data) {
     Node *first_node = (Node *) malloc(sizeof(Node));
     if (!first_node) {
         fprintf(stderr, "memory alloc fails.");
@@ -56,7 +81,7 @@ int SingleLinkedList_push_front(SingleLinkedList *lst, DataType *data) {
     return 0;
 }
 
-int SingleLinkedList_pop_front(SingleLinkedList *lst) {
+int SinglyLinkedList_pop_front(SinglyLinkedList *lst) {
     if (lst->length <= 0) {
         fprintf(stderr, "illegal operation: pop_front from empty single linked list");
         return -1;
