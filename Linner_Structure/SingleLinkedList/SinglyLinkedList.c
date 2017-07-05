@@ -3,7 +3,6 @@
  */
 
 #include <stdlib.h>
-#include <errno.h>
 #include <stdio.h>
 #include "SinglyLinkedList.h"
 
@@ -20,74 +19,80 @@ int SinglyLinkedList_free(SinglyLinkedList *lst) {
         fprintf(stderr, "lst is a NULL ptr, cannot be free.");
         return -1;
     }
-
     while (lst->head) {
-        Node *tmp = lst->head;
+        SinglyLinkedList_Node *tmp = lst->head;
         lst->head = lst->head->next;
         free(tmp->data);
         free(tmp);
     }
-
+    free(lst);
     return 0;
 }
 
-int SinglyLinkedList_push_back(SinglyLinkedList *lst, DataType *data) {
-    Node *last_node = (Node *) malloc(sizeof(Node));
-    if (!last_node) {
+int SinglyLinkedList_push_back(SinglyLinkedList *lst, SinglyLinkedList_DataType *data) {
+    SinglyLinkedList_Node *tmp = (SinglyLinkedList_Node *) malloc(sizeof(SinglyLinkedList_Node));
+    if (!tmp) {
         fprintf(stderr, "memory alloc fails.");
         return -1;
     }
-    last_node->data = data;
+    tmp->data = data;
+    tmp->next = NULL;
 
-    if (lst->length) {
-        lst->tail->next = last_node;
+    if (lst->tail) {
+        lst->tail->next = tmp;
     } else {
-        lst->head = last_node;
+        lst->head = tmp;
     }
-    lst->tail = last_node;
+    lst->tail = tmp;
     lst->length++;
     return 0;
 }
 
 int SinglyLinkedList_pop_back(SinglyLinkedList *lst) {
-    if (lst->length <= 0) {
+    if (lst->length <= 0 || lst->head == NULL || lst->tail == NULL) {
         fprintf(stderr, "illegal operation: pop_back from empty single linked list");
         return -1;
     }
-    Node *tmp = lst->head;
-
-    while (tmp->next != lst->tail) tmp = tmp->next;
-    free(tmp->next);
-    tmp->next = NULL;
+    SinglyLinkedList_Node *tmp = lst->head;
+    if (lst->head == lst->tail) {
+        lst->head = NULL;
+        lst->tail = NULL;
+        free(tmp->data);
+        free(tmp);
+    } else {
+        while (tmp->next != lst->tail) tmp = tmp->next;
+        free(lst->tail->data);
+        free(lst->tail);
+        lst->tail = tmp;
+        tmp->next = NULL;
+    }
+    lst->length--;
     return 0;
 }
 
-int SinglyLinkedList_push_front(SinglyLinkedList *lst, DataType *data) {
-    Node *first_node = (Node *) malloc(sizeof(Node));
-    if (!first_node) {
+int SinglyLinkedList_push_front(SinglyLinkedList *lst, SinglyLinkedList_DataType *data) {
+    SinglyLinkedList_Node *tmp = (SinglyLinkedList_Node *) malloc(sizeof(SinglyLinkedList_Node));
+    if (!tmp) {
         fprintf(stderr, "memory alloc fails.");
         return -1;
     }
-    first_node->data = data;
-
-    first_node->next = lst->head;
-    lst->head = first_node;
-
+    tmp->data = data;
+    tmp->next = lst->head;
+    lst->head = tmp;
+    if (!lst->tail) lst->tail = tmp;
     lst->length++;
-
-    if (!lst->tail) lst->tail = first_node;
     return 0;
 }
 
 int SinglyLinkedList_pop_front(SinglyLinkedList *lst) {
-    if (lst->length <= 0) {
+    if (lst->length <= 0 || lst->head == NULL || lst->tail == NULL) {
         fprintf(stderr, "illegal operation: pop_front from empty single linked list");
         return -1;
     }
-    Node *first_node = lst->head;
-    free(first_node->data);
-    lst->head = first_node->next;
+    SinglyLinkedList_Node *tmp = lst->head;
+    free(tmp->data);
+    lst->head = lst->head->next;
     lst->length--;
-    free(first_node);
+    free(tmp);
     return 0;
 }
