@@ -22,28 +22,28 @@ struct SingleLinkedList {
 };
 
 /*
- * function: wrap data with a new node and append it to list tail
+ * function: wrap data with a new node and append it to lst tail
  * arguments:
- *     list: operated SingleLinkedList pointer
+ *     lst: operated SingleLinkedList pointer
  *     data: DataType pointer
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SingleLinkedList_push_back(SingleLinkedList *list, DataType *data);
+int SingleLinkedList_push_back(SingleLinkedList *lst, DataType *data);
 
 /*
- * function: pop list's last node
+ * function: pop lst's last node
  * arguments:
- *     list: operated SingleLinkedList pointer
- * efficiency: O(n), n stand list's length
+ *     lst: operated SingleLinkedList pointer
+ * efficiency: O(n), n stand lst's length
  * return value: success return 0, else -1 on err occurred
  */
-int SingleLinkedList_pop_back(SingleLinkedList *list);
+int SingleLinkedList_pop_back(SingleLinkedList *lst);
 
 /*
- * function: wrap data with a new node and insert it to list head
+ * function: wrap data with a new node and insert it to lst head
  * arguments:
- *     list: operated SingleLinkedList pointer
+ *     lst: operated SingleLinkedList pointer
  *     data: DataType pointer
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
@@ -51,10 +51,10 @@ int SingleLinkedList_pop_back(SingleLinkedList *list);
 int SingleLinkedList_push_front(SingleLinkedList, DataType);
 
 /*
- * function: pop list's first node
+ * function: pop lst's first node
  * arguments:
- *     list: operated SingleLinkedList pointer
+ *     lst: operated SingleLinkedList pointer
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SingleLinkedList_pop_front(SingleLinkedList *list);
+int SingleLinkedList_pop_front(SingleLinkedList *lst);
