@@ -9,12 +9,12 @@
 #include "../SinglyLinkedList.h"
 
 #define TEST_CIRCLE 10000
-#define LENGTH 3
+#define LENGTH 100
 
 int main() {
-    struct rusage usage;
-    SinglyLinkedList *lst = SinglyLinkedList_malloc();
+    struct rusage rusage1, rusage2;
     for (int circle = 0; circle < TEST_CIRCLE; circle++) {
+        SinglyLinkedList *lst = SinglyLinkedList_malloc();
         for (int i = 0; i < LENGTH; i++) {
             SinglyLinkedList_DataType *data;
             data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
@@ -28,10 +28,15 @@ int main() {
             SinglyLinkedList_pop_back(lst);
             SinglyLinkedList_pop_front(lst);
         }
-        getrusage(RUSAGE_SELF, &usage);
-        printf("Memory usage: %ld bytes\n",usage.ru_maxrss);
+        SinglyLinkedList_free(lst);
+        if (!circle) getrusage(RUSAGE_SELF, &rusage1);
+        else {
+            getrusage(RUSAGE_SELF, &rusage2);
+            assert(rusage2.ru_maxrss == rusage1.ru_maxrss);
+            rusage1 = rusage2;
+        }
+//        printf("Memory usage: %ld bytes\n", rusage2.ru_maxrss);
     }
-
-    SinglyLinkedList_free(lst);
+    printf("memory test passed");
     return 0;
 }
