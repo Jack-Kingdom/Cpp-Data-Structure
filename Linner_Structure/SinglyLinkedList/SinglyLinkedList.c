@@ -60,7 +60,6 @@ int SinglyLinkedList_pop_back(SinglyLinkedList *lst) {
         free(tmp->data);
         free(tmp);
     } else {
-        // todo: notice here: segmentfalt
         while (tmp->next != lst->tail) tmp = tmp->next;
         free(lst->tail->data);
         free(lst->tail);
@@ -91,9 +90,14 @@ int SinglyLinkedList_pop_front(SinglyLinkedList *lst) {
         return -1;
     }
     SinglyLinkedList_Node *tmp = lst->head;
+    if (lst->head == lst->tail) {
+        lst->head = NULL;
+        lst->tail = NULL;
+    } else {
+        lst->head = lst->head->next;
+    }
     free(tmp->data);
-    lst->head = lst->head->next;
-    lst->length--;
     free(tmp);
+    lst->length--;
     return 0;
 }
