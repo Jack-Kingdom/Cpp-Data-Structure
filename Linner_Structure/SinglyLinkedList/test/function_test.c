@@ -7,7 +7,7 @@
 #include <assert.h>
 #include "../SinglyLinkedList.h"
 
-// TODO: modified test size with define
+#define LENGTH 100
 
 int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
@@ -16,7 +16,7 @@ int main() {
     assert(lst->head == NULL);
     assert(lst->tail == NULL);
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < LENGTH; i++) {
         SinglyLinkedList_DataType *data;
         data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
         data->simple = i;
@@ -29,13 +29,13 @@ int main() {
         assert(lst->tail->data->simple == i);
     }
 
-    while (lst->length > 50) {
+    while (lst->length > LENGTH) {
         SinglyLinkedList_pop_front(lst);
         SinglyLinkedList_pop_back(lst);
         assert(lst->head != NULL);
         assert(lst->tail != NULL);
     }
-    assert(lst->length == 50);
+    assert(lst->length == LENGTH);
 
     SinglyLinkedList_free(lst);
 
