@@ -7,6 +7,8 @@
 #include <assert.h>
 #include "../SinglyLinkedList.h"
 
+// TODO: modified test size with define
+
 int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
 
@@ -35,7 +37,6 @@ int main() {
     }
     assert(lst->length == 50);
 
-    //todo
     SinglyLinkedList_free(lst);
 
     printf("all function test passed\n");
