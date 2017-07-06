@@ -60,6 +60,7 @@ int SinglyLinkedList_pop_back(SinglyLinkedList *lst) {
         free(tmp->data);
         free(tmp);
     } else {
+        // todo: notice here: segmentfalt
         while (tmp->next != lst->tail) tmp = tmp->next;
         free(lst->tail->data);
         free(lst->tail);
