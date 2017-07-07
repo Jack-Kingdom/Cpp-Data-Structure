@@ -6,3 +6,6 @@ add_executable(SingleLinkedList_function_test Linner_Structure/SinglyLinkedList/
 
 project(SingleLinkedList_memory_test)
 add_executable(SingleLinkedList_memory_test Linner_Structure/SinglyLinkedList/test/memory_test.c Linner_Structure/SinglyLinkedList/SinglyLinkedList.c)
+
+project(DoublyLinkedList_memory_test)
+add_executable(DoublyLinkedList_memory_test Linner_Structure/DoublyLinkedLIst/DoublyLinkedList.c Linner_Structure/DoublyLinkedLIst/test/function_test.c)
