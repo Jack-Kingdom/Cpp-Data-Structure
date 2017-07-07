@@ -9,6 +9,10 @@
 
 DoublyLinkedList *DoublyLinkedList_malloc() {
     DoublyLinkedList *lst = (DoublyLinkedList *) malloc(sizeof(DoublyLinkedList));
+    if (!lst) {
+        fprintf(stderr, "lst malloc fails.");
+        return NULL;
+    }
     lst->head = NULL;
     lst->tail = NULL;
     lst->length = 0;

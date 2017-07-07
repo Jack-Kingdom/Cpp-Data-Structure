@@ -8,6 +8,10 @@
 
 SinglyLinkedList *SinglyLinkedList_malloc() {
     SinglyLinkedList *lst = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
+    if (!lst) {
+        fprintf(stderr, "lst malloc fails.");
+        return NULL;
+    }
     lst->head = NULL;
     lst->tail = NULL;
     lst->length = 0;
