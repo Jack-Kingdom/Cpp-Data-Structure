@@ -29,6 +29,8 @@ int main() {
         assert(lst->tail->data->simple == i);
     }
 
+    // todo: add more test
+
     while (lst->length > LENGTH) {
         SinglyLinkedList_pop_front(lst);
         SinglyLinkedList_pop_back(lst);

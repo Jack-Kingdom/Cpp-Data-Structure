@@ -5,8 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include "../DoublyLinkedList.h"
 
-int main(){
-    // todo
+int main() {
+
+    DoublyLinkedList *lst = DoublyLinkedList_malloc();
+
+
     return 0;
 }
