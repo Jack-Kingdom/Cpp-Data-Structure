@@ -9,3 +9,4 @@ add_executable(SingleLinkedList_memory_test Linner_Structure/SinglyLinkedList/te
 
 project(DoublyLinkedList_memory_test)
 add_executable(DoublyLinkedList_memory_test Linner_Structure/DoublyLinkedLIst/DoublyLinkedList.c Linner_Structure/DoublyLinkedLIst/test/function_test.c)
+
