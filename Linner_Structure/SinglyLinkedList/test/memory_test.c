@@ -16,11 +16,11 @@ int main() {
     for (int circle = 0; circle < TEST_CIRCLE; circle++) {
         SinglyLinkedList *lst = SinglyLinkedList_malloc();
         for (int i = 0; i < LENGTH; i++) {
-            SinglyLinkedList_DataType *data;
-            data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
+            DataType *data;
+            data = (DataType *) malloc(sizeof(DataType));
             data->simple = i;
             SinglyLinkedList_push_back(lst, data);
-            data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
+            data = (DataType *) malloc(sizeof(DataType));
             data->simple = i;
             SinglyLinkedList_push_front(lst, data);
         }

@@ -33,7 +33,7 @@ int SinglyLinkedList_free(SinglyLinkedList *lst) {
     return 0;
 }
 
-int SinglyLinkedList_push_back(SinglyLinkedList *lst, SinglyLinkedList_DataType *data) {
+int SinglyLinkedList_push_back(SinglyLinkedList *lst, DataType *data) {
     SinglyLinkedList_Node *tmp = (SinglyLinkedList_Node *) malloc(sizeof(SinglyLinkedList_Node));
     if (!tmp) {
         fprintf(stderr, "memory alloc fails.");
@@ -74,7 +74,7 @@ int SinglyLinkedList_pop_back(SinglyLinkedList *lst) {
     return 0;
 }
 
-int SinglyLinkedList_push_front(SinglyLinkedList *lst, SinglyLinkedList_DataType *data) {
+int SinglyLinkedList_push_front(SinglyLinkedList *lst, DataType *data) {
     SinglyLinkedList_Node *tmp = (SinglyLinkedList_Node *) malloc(sizeof(SinglyLinkedList_Node));
     if (!tmp) {
         fprintf(stderr, "memory alloc fails.");

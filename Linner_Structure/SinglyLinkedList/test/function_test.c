@@ -9,6 +9,10 @@
 
 #define LENGTH 100
 
+struct DataStruct {
+    int simple;
+};
+
 int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
 
@@ -17,11 +21,11 @@ int main() {
     assert(lst->tail == NULL);
 
     for (int i = 0; i < LENGTH; i++) {
-        SinglyLinkedList_DataType *data;
-        data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
+        DataType *data;
+        data = (DataType *) malloc(sizeof(DataType));
         data->simple = i;
         SinglyLinkedList_push_back(lst, data);
-        data = (SinglyLinkedList_DataType *) malloc(sizeof(SinglyLinkedList_DataType));
+        data = (DataType *) malloc(sizeof(DataType));
         data->simple = i;
         SinglyLinkedList_push_front(lst, data);
         assert(lst->length == 2 * (i + 1));

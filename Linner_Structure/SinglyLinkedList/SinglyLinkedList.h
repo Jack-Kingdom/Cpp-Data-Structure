@@ -6,15 +6,14 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
-typedef struct {
-    // define your data type here
-    // rewrite here to fit your use case
-    int simple;
-} SinglyLinkedList_DataType;
+// define your DataStruct to fit your use case
+struct DataStruct;
+
+typedef struct DataStruct DataType;
 
 typedef struct SinglyLinkedList_Node {
     // node of single linked list
-    SinglyLinkedList_DataType *data;
+    DataType *data;
     struct SinglyLinkedList_Node *next;
 } SinglyLinkedList_Node;
 
@@ -45,11 +44,11 @@ int SinglyLinkedList_free(SinglyLinkedList *lst);
  * function: wrap data with a new node and append it to lst tail
  * arguments:
  *     lst: operated SinglyLinkedList pointer
- *     data: SinglyLinkedList_DataType pointer
+ *     data: DataType pointer
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SinglyLinkedList_push_back(SinglyLinkedList *lst, SinglyLinkedList_DataType *data);
+int SinglyLinkedList_push_back(SinglyLinkedList *lst, DataType *data);
 
 /*
  * function: pop lst's last node
@@ -64,11 +63,11 @@ int SinglyLinkedList_pop_back(SinglyLinkedList *lst);
  * function: wrap data with a new node and insert it to lst head
  * arguments:
  *     lst: operated SinglyLinkedList pointer
- *     data: SinglyLinkedList_DataType pointer
+ *     data: DataType pointer
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SinglyLinkedList_push_front(SinglyLinkedList *lst, SinglyLinkedList_DataType *data);
+int SinglyLinkedList_push_front(SinglyLinkedList *lst, DataType *data);
 
 /*
  * function: pop lst's first node
