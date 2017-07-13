@@ -11,6 +11,10 @@
 #define TEST_CIRCLE 10000
 #define LENGTH 100
 
+struct DataStruct {
+    int simple;
+};
+
 int main() {
     struct rusage rusage1, rusage2;
     for (int circle = 0; circle < TEST_CIRCLE; circle++) {

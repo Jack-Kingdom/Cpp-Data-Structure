@@ -16,4 +16,4 @@ project(SinglyCircularList_function_test)
 add_executable(SinglyCircularList_function_test Linner_Structure/SinglyCircularList/SinglyCircularList.c Linner_Structure/SinglyCircularList/test/function_test.c)
 
 # Doubly Circular Linked List
-project(DoublyCircularList_function_test)
+#project(DoublyCircularList_function_test)
