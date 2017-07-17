@@ -3,6 +3,11 @@
 Finished Job:
 1.
 
+Current Working:
+1. SinglyCircularList
+2. DoublyCircularList
+3. vector
+
 Unfinished:
-*. vector
-*.
+*. Linner Strcture
+*. and so on
