@@ -9,11 +9,9 @@
 
 #define LENGTH 100
 
-struct DataStruct {
+typedef struct DataStruct {
     int simple;
-};
-
-typedef struct DataStruct DataType;
+} DataType;
 
 int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
