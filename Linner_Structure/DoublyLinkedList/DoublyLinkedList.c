@@ -34,7 +34,7 @@ int DoublyLinkedList_free(DoublyLinkedList *lst) {
     return 0;
 }
 
-int DoublyLinkedList_push_back(DoublyLinkedList *lst, DoublyLinkedList_DataType *data) {
+int DoublyLinkedList_push_back(DoublyLinkedList *lst, void *data) {
     DoublyLinkedList_Node *tmp = (DoublyLinkedList_Node *) malloc(sizeof(DoublyLinkedList_Node));
     if (!tmp) {
         fprintf(stderr, "memory alloc fails.");
@@ -77,7 +77,7 @@ int DoublyLinkedList_pop_back(DoublyLinkedList *lst) {
     return 0;
 }
 
-int DoublyLinkedList_push_front(DoublyLinkedList *lst, DoublyLinkedList_DataType *data) {
+int DoublyLinkedList_push_front(DoublyLinkedList *lst, void *data) {
     DoublyLinkedList_Node *tmp = (DoublyLinkedList_Node *) malloc(sizeof(DoublyLinkedList_Node));
     if (!tmp) {
         fprintf(stderr, "memory alloc fails.");

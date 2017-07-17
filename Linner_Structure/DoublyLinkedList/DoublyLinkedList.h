@@ -5,14 +5,8 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
-typedef struct {
-    // define your data type here
-    // rewrite here to fit your use case
-    int simple;
-} DoublyLinkedList_DataType;
-
 typedef struct DoublyLinkedList_Node {
-    DoublyLinkedList_DataType *data;
+    void *data;
     struct DoublyLinkedList_Node *pre;
     struct DoublyLinkedList_Node *next;
 } DoublyLinkedList_Node;
@@ -44,11 +38,11 @@ int DoublyLinkedList_free(DoublyLinkedList *lst);
  * function: wrap data with a new node and append it to lst tail
  * arguments:
  *     lst: operated DoublyLinkedList pointer
- *     data: DoublyLinkedList_DataType pointer
+ *     data: void* pointer, receive data type ptr
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int DoublyLinkedList_push_back(DoublyLinkedList *lst, DoublyLinkedList_DataType *data);
+int DoublyLinkedList_push_back(DoublyLinkedList *lst, void *data);
 
 /*
  * function: pop lst's last node
@@ -63,11 +57,11 @@ int DoublyLinkedList_pop_back(DoublyLinkedList *lst);
  * function: wrap data with a new node and insert it to lst head
  * arguments:
  *     lst: operated DoublyLinkedList pointer
- *     data: DoublyLinkedList_DataType pointer
+ *     data: void* pointer, receive data type ptr
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int DoublyLinkedList_push_front(DoublyLinkedList *lst, DoublyLinkedList_DataType *data);
+int DoublyLinkedList_push_front(DoublyLinkedList *lst, void *data);
 
 /*
  * function: pop lst's first node
