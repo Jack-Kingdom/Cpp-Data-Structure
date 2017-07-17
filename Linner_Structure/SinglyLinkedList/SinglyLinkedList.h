@@ -6,14 +6,9 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
-// define your DataStruct to fit your use case
-struct DataStruct;
-
-typedef struct DataStruct DataType;
-
 typedef struct SinglyLinkedList_Node {
     // node of single linked list
-    DataType *data;
+    void *data;
     struct SinglyLinkedList_Node *next;
 } SinglyLinkedList_Node;
 
@@ -48,7 +43,7 @@ int SinglyLinkedList_free(SinglyLinkedList *lst);
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SinglyLinkedList_push_back(SinglyLinkedList *lst, DataType *data);
+int SinglyLinkedList_push_back(SinglyLinkedList *lst, void *data);
 
 /*
  * function: pop lst's last node
@@ -67,7 +62,7 @@ int SinglyLinkedList_pop_back(SinglyLinkedList *lst);
  * efficiency: O(1)
  * return value: success return 0, else -1 on err occurred
  */
-int SinglyLinkedList_push_front(SinglyLinkedList *lst, DataType *data);
+int SinglyLinkedList_push_front(SinglyLinkedList *lst, void *data);
 
 /*
  * function: pop lst's first node

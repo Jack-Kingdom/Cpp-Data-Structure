@@ -13,6 +13,8 @@ struct DataStruct {
     int simple;
 };
 
+typedef struct DataStruct DataType;
+
 int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
 
@@ -29,8 +31,10 @@ int main() {
         data->simple = i;
         SinglyLinkedList_push_front(lst, data);
         assert(lst->length == 2 * (i + 1));
-        assert(lst->head->data->simple == i);
-        assert(lst->tail->data->simple == i);
+        data = (DataType*)lst->head->data;
+        assert(data->simple == i);
+        data = (DataType*)lst->tail->data;
+        assert(data->simple == i);
     }
 
     // todo: add more test
