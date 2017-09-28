@@ -6,8 +6,8 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
+// Node structure
 typedef struct SinglyLinkedList_Node {
-    // node of single linked list
     void *data;
     struct SinglyLinkedList_Node *next;
 } SinglyLinkedList_Node;
@@ -22,15 +22,15 @@ typedef struct {
  * function: alloc a SinglyLinkedList struct and init it
  * arguments: none
  * efficiency: O(1)
- * return value: success return a ptr, else NULL on err occurred
+ * return value: success return a ptr, else NULL
  */
 SinglyLinkedList *SinglyLinkedList_malloc();
 
 /*
  * function: free a SinglyLinkedList and its all node and data
  * arguments:
- *     lst: SinglyLinkedList that to be free
- * efficiency: O(n), n stand lst's length
+ *     lst: SinglyLinkedList that to be freed
+ * efficiency: O(n), n stand node's amount
  * return value: success return 0, else -1 on err occurred
  */
 int SinglyLinkedList_free(SinglyLinkedList *lst);
