@@ -1,4 +1,4 @@
 .idea
 cmake-build-debug
-Test_Check_Space
 a.out
+*.gch

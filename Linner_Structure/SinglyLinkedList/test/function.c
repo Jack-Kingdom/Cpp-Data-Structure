@@ -1,7 +1,3 @@
-/*
- *
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -17,33 +13,32 @@ int main() {
     SinglyLinkedList *lst = SinglyLinkedList_malloc();
 
     assert(lst->length == 0);
-    assert(lst->head == NULL);
-    assert(lst->tail == NULL);
 
     for (int i = 0; i < LENGTH; i++) {
         DataType *data;
+
         data = (DataType *) malloc(sizeof(DataType));
         data->simple = i;
         SinglyLinkedList_push_back(lst, data);
+
         data = (DataType *) malloc(sizeof(DataType));
         data->simple = i;
         SinglyLinkedList_push_front(lst, data);
+
         assert(lst->length == 2 * (i + 1));
-        data = (DataType*)lst->head->data;
+        data = (DataType *) lst->head->data;
         assert(data->simple == i);
-        data = (DataType*)lst->tail->data;
+        data = (DataType *) lst->tail->data;
         assert(data->simple == i);
     }
 
-    // todo: add more test
-
-    while (lst->length > LENGTH) {
+    while (lst->length) {
+        free(lst->head->data);
         SinglyLinkedList_pop_front(lst);
+
+        free(lst->tail->data);
         SinglyLinkedList_pop_back(lst);
-        assert(lst->head != NULL);
-        assert(lst->tail != NULL);
     }
-    assert(lst->length == LENGTH);
 
     SinglyLinkedList_free(lst);
 
