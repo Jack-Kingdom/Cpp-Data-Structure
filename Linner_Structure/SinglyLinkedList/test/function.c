@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "../SinglyLinkedList.h"
+#include "../src/SinglyLinkedList.h"
 
 #define LENGTH 100
 

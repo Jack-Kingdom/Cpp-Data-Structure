@@ -8,10 +8,8 @@
 
 SinglyLinkedList *SinglyLinkedList_malloc() {
     SinglyLinkedList *lst = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
-    if (!lst) {
-        fprintf(stderr, "lst malloc fails.");
-        return NULL;
-    }
+    if (!lst) return NULL;
+
     lst->head = NULL;
     lst->tail = NULL;
     lst->length = 0;
@@ -19,10 +17,8 @@ SinglyLinkedList *SinglyLinkedList_malloc() {
 }
 
 int SinglyLinkedList_free(SinglyLinkedList *lst) {
-    if (lst == NULL) {
-        fprintf(stderr, "lst is a NULL ptr, cannot be free.");
-        return -1;
-    }
+    if (lst == NULL) return -1;
+
     while (lst->head) {
         SinglyLinkedList_Node *tmp = lst->head;
         lst->head = lst->head->next;

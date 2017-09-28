@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <sys/resource.h>
-#include "../SinglyLinkedList.h"
+#include "../src/SinglyLinkedList.h"
 
 #define TEST_CIRCLE 10000
 #define LENGTH 100
