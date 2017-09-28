@@ -9,7 +9,7 @@
 
 #define LENGTH 100
 
-typedef struct DataStruct {
+typedef struct {
     int simple;
 } DataType;
 
