@@ -1,7 +1,6 @@
 #include "../header/quick_sort.h"
 
-void quick_sort_recursion(void **array, int head, int tail,
-                          int(*cmp)(void *, void *)) {
+void quick_sort_recursion(void **array, int head, int tail, int(*cmp)(void *, void *)) {
 
     if (head >= tail) return;   // termination condition
 
