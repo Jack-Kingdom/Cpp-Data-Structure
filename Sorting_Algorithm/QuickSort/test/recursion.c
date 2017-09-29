@@ -3,14 +3,14 @@
 #include <time.h>
 #include "../header/quick_sort.h"
 
-#define ARRAY_LENGTH 1000000
+#define ARRAY_LENGTH 10
 
 typedef struct {
     int number;
 } DataType;
 
 int cmp(void *a, void *b) {
-    return ((DataType *) a)->number <= ((DataType *) b)->number;
+    return ((DataType *) a)->number >= ((DataType *) b)->number;
 }
 
 int main() {
@@ -18,8 +18,8 @@ int main() {
     void **array = (void **) malloc(sizeof(void **) * ARRAY_LENGTH);
     for (int i = 0; i < ARRAY_LENGTH; i++) array[i] = malloc(sizeof(DataType));
 
-    srand(time(NULL));
-    for (int i = 0; i < ARRAY_LENGTH; i++) ((DataType *) array[i])->number = rand();
+    srand((unsigned int) time(NULL));
+    for (int i = 0; i < ARRAY_LENGTH; i++) ((DataType *) array[i])->number = rand() % 10;
 
     quick_sort(array, ARRAY_LENGTH, &cmp);
 
